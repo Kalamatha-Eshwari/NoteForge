@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form method="POST" action="/auth/login">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+
+        <% if (message && message.length > 0) { %>
+          <div class="alert alert-danger">
+            <strong>Error!</strong> <%= message %>
+          </div>
+        <% } %>
+
+        <div class="signup-link">
+          <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
